@@ -12,6 +12,9 @@ public class knight : MonoBehaviour
     public Animator PlayerAnim;
     public SpriteRenderer knightflip;
     public bool IsPlayerAttacking = false;
+    public bool IsJumping = true;
+    public Animator jump;
+
 
 
     // Start is called before the first frame update
@@ -19,7 +22,8 @@ public class knight : MonoBehaviour
     {
         PlayerRB = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
-        knightflip = GetComponent<SpriteRenderer>();    
+        knightflip = GetComponent<SpriteRenderer>();
+        jump = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class knight : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
+            jump.Play("jump");
             transform.Translate(Vector2.up * Speed * Time.deltaTime);
 
 
