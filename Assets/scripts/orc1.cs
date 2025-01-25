@@ -14,12 +14,14 @@ public class orc1 : MonoBehaviour
     public LayerMask LayerMask;
     public Transform knight;
     public SpriteRenderer flip;
-        
+    public int Orclife = 3;
+    public GameObject emblem;
+
 
     private Vector2 startposition;
     private Vector2 Orcdirection = Vector2.right;
     private float previousORCposition;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class orc1 : MonoBehaviour
         OrcAnim = GetComponent<Animator>();
         OrcRB = GetComponent<Rigidbody2D>();
         flip = GetComponent<SpriteRenderer>();
+
 
     }
 
@@ -55,6 +58,8 @@ public class orc1 : MonoBehaviour
 
         RayDetection();
 
+       
+
     }
 
     private void DetectingPosition()
@@ -73,33 +78,33 @@ public class orc1 : MonoBehaviour
         {
             Debug.Log("orc moves right");
             isORCmovingLeft = false;
-                isORCmovingRight = true;
+            isORCmovingRight = true;
 
-            }
+        }
 
         else
         {
             Debug.Log("Player is not moving");
         }
 
-            //Update the previous position for the next frame
-            previousORCposition = currentPlayerPosition;
+        //Update the previous position for the next frame
+        previousORCposition = currentPlayerPosition;
 
 
     }
 
     private void RayDetection()
-    { 
-    RaycastHit2D RayLaser = Physics2D.Raycast(transform.position, Orcdirection, RayDistance, LayerMask); 
+    {
+        RaycastHit2D RayLaser = Physics2D.Raycast(transform.position, Orcdirection, RayDistance, LayerMask);
         Debug.DrawRay(transform.position, Orcdirection * RayDistance, Color.red);
         if (RayLaser)
         {
             followPlayer();
-            if(RayLaser.distance < 1.5f)
+            if (RayLaser.distance < 1.5f)
             {
                 OrcAnim.SetBool("isclosetotarget", true);
             }
-           
+
         }
         if (!RayLaser)
         {
@@ -111,4 +116,22 @@ public class orc1 : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, knight.position, Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "knight")
+        {
+            Orclife -= 1;
+            if (Orclife < 1)
+            {
+                OrcAnim.SetBool("orcisdead", true);
+                Instantiate(emblem, transform.position, Quaternion.identity);
+                Destroy(this.gameObject, 1.5f);
+               
+            }
+
+        }
+
+    }
+
 }

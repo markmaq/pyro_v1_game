@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class knight : MonoBehaviour
 {
@@ -11,9 +13,12 @@ public class knight : MonoBehaviour
     //public LayerMask layermask;
     public Animator PlayerAnim;
     public SpriteRenderer knightflip;
-    public bool IsPlayerAttacking = false;
+    public bool isattacking = false;
     public bool IsJumping = true;
     public Animator jump;
+    public Animator knightattack;
+    public TextMeshProUGUI score;
+    public int PlayerLife = 10;
 
 
 
@@ -29,6 +34,10 @@ public class knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        score.text = PlayerLife.ToString();
+
+
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector2.left * Speed * Time.deltaTime);
@@ -49,11 +58,32 @@ public class knight : MonoBehaviour
 
 
         }
+        if (Input.GetKey(KeyCode.F))
+        {
+            knightattack.Play("knightattack");
+        }
 
-        
+
+
     }
-    
-   
 
-   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "orc")
+        {
+         PlayerLife -= 1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "powerUp")
+        {
+            PlayerLife += 2;
+            Destroy(collision.gameObject, 1);
+        }
+    }
+
+
+
 }
