@@ -13,7 +13,7 @@ public class knight : MonoBehaviour
     //public LayerMask layermask;
     public Animator PlayerAnim;
     public SpriteRenderer knightflip;
-    public bool isattacking = false;
+    public bool isattacking = true;
     public bool IsJumping = true;
     public Animator jump;
     public Animator knightattack;
@@ -35,6 +35,7 @@ public class knight : MonoBehaviour
     void Update()
     {
         score.text = PlayerLife.ToString();
+        Rigid
 
 
 
@@ -60,7 +61,8 @@ public class knight : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F))
         {
-            knightattack.Play("knightattack");
+            PlayerAnim.Play("knightattack");
+            
         }
 
 
