@@ -33,12 +33,14 @@ public class KnightNew : MonoBehaviour
     private void OnJump()
     {
         Debug.Log("jump!");
+        KnightAnim.Play("jump");
         KnightRB.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
     }
 
     private void OnMovements(InputValue inputvalue)
     {
         KnightRB.velocity = inputvalue.Get<Vector2>() * Movementspeed;
+       
     }
     private void OnAttack()
     {
