@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class KnightNew : MonoBehaviour
 {
     Animator KnightAnim;
@@ -21,6 +22,7 @@ public class KnightNew : MonoBehaviour
         KnightRB = GetComponent<Rigidbody2D>();
         KnightAnim = GetComponent<Animator>();
         knightflip = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -30,7 +32,8 @@ public class KnightNew : MonoBehaviour
     }
     private void OnJump()
     {
-        KnightRB.AddForce(Vector2.up *, ForceMode2D.Impulse);
+        Debug.Log("jump!");
+        KnightRB.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
     }
 
     private void OnMovements(InputValue inputvalue)

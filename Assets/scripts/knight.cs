@@ -35,7 +35,7 @@ public class knight : MonoBehaviour
     void Update()
     {
         score.text = PlayerLife.ToString();
-        Rigid
+        
 
 
 

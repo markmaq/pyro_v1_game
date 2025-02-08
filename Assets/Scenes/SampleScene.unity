@@ -909,12 +909,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 15
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 904.2, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.304
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -963,11 +963,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1036656836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5890003672014262786, guid: abf3713737fbf90478f05bbd1a26f37d, type: 3}
-  m_PrefabInstance: {fileID: 1457320272}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100104016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,8 +1286,8 @@ GameObject:
   - component: {fileID: 1463977859}
   - component: {fileID: 1463977863}
   - component: {fileID: 1463977862}
-  - component: {fileID: 1463977864}
   - component: {fileID: 1463977865}
+  - component: {fileID: 1463977866}
   m_Layer: 6
   m_Name: orc2
   m_TagString: orc
@@ -1460,32 +1455,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.36, y: 11.86}
   m_EdgeRadius: 0
---- !u!114 &1463977864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463977858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee66c621b73fa344faae55828c5fa5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Distance: 2
-  speed: 1
-  isORCmovingRight: 0
-  isORCmovingLeft: 0
-  OrcRB: {fileID: 0}
-  OrcAnim: {fileID: 1463977859}
-  RayDistance: 5
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  knight: {fileID: 1597867836}
-  flip: {fileID: 0}
-  Orclife: 3
-  emblem: {fileID: 1036656836}
 --- !u!82 &1463977865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1582,6 +1551,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1463977866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463977858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee66c621b73fa344faae55828c5fa5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 3
+  speed: 2
+  isORCmovingRight: 0
+  isORCmovingLeft: 0
+  OrcRB: {fileID: 0}
+  OrcAnim: {fileID: 0}
+  RayDistance: 5
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  knight: {fileID: 0}
+  flip: {fileID: 0}
+  Orclife: 3
+  emblem: {fileID: 5890003672014262786, guid: abf3713737fbf90478f05bbd1a26f37d, type: 3}
 --- !u!1 &1597867831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1591,7 @@ GameObject:
   - component: {fileID: 1597867833}
   - component: {fileID: 1597867832}
   - component: {fileID: 1597867837}
+  - component: {fileID: 1597867838}
   m_Layer: 3
   m_Name: knight
   m_TagString: knight
@@ -1785,6 +1781,36 @@ MonoBehaviour:
   knightattack: {fileID: 0}
   score: {fileID: 86267234}
   PlayerLife: 10
+--- !u!114 &1597867838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597867831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4aa814a3be5636145988c1178b379f66, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: contoller
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1811689773
 GameObject:
   m_ObjectHideFlags: 0
