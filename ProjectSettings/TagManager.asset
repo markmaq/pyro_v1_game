@@ -8,6 +8,8 @@ TagManager:
   - orc
   - ground
   - powerUp
+  - Door
+  - Boost
   layers:
   - Default
   - TransparentFX

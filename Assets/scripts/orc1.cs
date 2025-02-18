@@ -69,14 +69,14 @@ public class orc1 : MonoBehaviour
         if (currentPlayerPosition < previousORCposition)
         {
 
-            Debug.Log("orc moves left");
+            //Debug.Log("orc moves left");
             isORCmovingLeft = true;
             isORCmovingRight = false;
         }
 
         else if (currentPlayerPosition > previousORCposition)
         {
-            Debug.Log("orc moves right");
+            //Debug.Log("orc moves right");
             isORCmovingLeft = false;
             isORCmovingRight = true;
 
