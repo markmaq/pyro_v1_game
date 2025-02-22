@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngineInternal;
 
 
@@ -20,6 +22,9 @@ public class KnightNew : MonoBehaviour
     public bool isPlayerBoost = false;
     public bool isWalking = true;
 
+    public float Playerlife = 100f;
+    public Image HealthSlider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +37,25 @@ public class KnightNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(isPlayerBoost)
+       if(Input.GetKeyDown(KeyCode.UpArrow))
+       {
+            PlayerDamage(10);
+       }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            PlayerHeal(10);
+        }
+
+
+
+
+
+
+
+
+
+        if (isPlayerBoost)
         {
             Movementspeed = 10;
         }
@@ -102,5 +125,21 @@ public class KnightNew : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         isPlayerBoost = false;
 
+    }
+
+
+    public void PlayerDamage(float damage)
+    {
+        Playerlife -= damage;
+        HealthSlider.fillAmount = Playerlife / 100f; 
+        
+    }
+
+    public void PlayerHeal(float healing)
+    {
+        Playerlife += healing;
+        Playerlife = Mathf.Clamp(Playerlife, 0, 100);
+
+        HealthSlider.fillAmount = Playerlife / 100f;
     }
 }
